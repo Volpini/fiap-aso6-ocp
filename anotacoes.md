@@ -29,3 +29,17 @@ image-registry.openshift-image-registry.svc:5000/fiap-aso-bvolpini/blog-django-p
 `oc create -f hpa/blog-django-py-git-hpa.yml`
 ou
 `oc create -f https://raw.githubusercontent.com/Volpini/fiap-aso6-ocp/main/hpa/blog-django-py-git-hpa.yml`
+
+## Criar database PostgreSQL
+`oc new-app postgresql-persistent --name sample-database --param DATABASE_SERVICE_NAME=sample-database --param POSTGRESQL_USER=sampledb --param POSTGRESQL_PASSWORD=sampledb --param POSTGRESQL_DATABASE=sampledb`
+
+```
+Username: sampledb
+Password: sampledb
+Database Name: sampledb
+Connection URL: postgresql://sample-database:5432/
+```
+
+## Adicionar env a um deployment
+`oc set env deployment blog-django-py-git DATABASE_URL=postgresql://sampledb:sampledb@sample-database:5432/sampledb`
+
