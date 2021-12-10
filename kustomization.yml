@@ -1,5 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: fiap
 resources:
   - deployment/blog.deployment.yml
   - deployment-config/sample-database.deploymentconfig.yml
