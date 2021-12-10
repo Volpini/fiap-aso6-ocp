@@ -9,6 +9,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: pvc-ef43a07c-d7fd-4965-bdd2-f8ebd6bae395
   storageClassName: standard
-  volumeMode: Filesystem

@@ -13,18 +13,14 @@ spec:
         from:
           kind: ImageStreamTag
           namespace: openshift
-          name: 'postgresql:10-el8'
-        lastTriggeredImage: >-
-          image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:6d97b69c1dd606d5ca679bbae3d6e6a8073bb1c561fa8b0d78e37f0bcac84237
+          name: 'postgresql:10'
+        lastTriggeredImage: postgres:10.19-alpine
     - type: ConfigChange
   replicas: 1
-  revisionHistoryLimit: 10
-  test: false
   selector:
     name: sample-database
   template:
     metadata:
-      creationTimestamp: null
       labels:
         name: sample-database
     spec:
@@ -36,27 +32,7 @@ spec:
         - resources:
             limits:
               memory: 512Mi
-          readinessProbe:
-            exec:
-              command:
-                - /usr/libexec/check-container
-            initialDelaySeconds: 5
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
-          terminationMessagePath: /dev/termination-log
           name: postgresql
-          livenessProbe:
-            exec:
-              command:
-                - /usr/libexec/check-container
-                - '--live'
-            initialDelaySeconds: 120
-            timeoutSeconds: 10
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
           env:
             - name: POSTGRESQL_USER
               valueFrom:
@@ -73,9 +49,6 @@ spec:
                 secretKeyRef:
                   name: sample-database
                   key: database-name
-          securityContext:
-            capabilities: {}
-            privileged: false
           ports:
             - containerPort: 5432
               protocol: TCP
@@ -84,8 +57,7 @@ spec:
             - name: sample-database-data
               mountPath: /var/lib/pgsql/data
           terminationMessagePolicy: File
-          image: >-
-            image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:6d97b69c1dd606d5ca679bbae3d6e6a8073bb1c561fa8b0d78e37f0bcac84237
+          image: postgres:10.19-alpine
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

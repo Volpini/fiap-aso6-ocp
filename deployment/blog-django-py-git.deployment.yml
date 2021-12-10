@@ -31,4 +31,25 @@ spec:
               protocol: TCP
           resources: {}
           imagePullPolicy: Always
+          env:
+            - name: DATABASE_SERVICE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: python-blog
+                  key: db-service-name
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: python-blog
+                  key: db-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: python-blog
+                  key: db-pass
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: python-blog
+                  key: db-name     
       restartPolicy: Always

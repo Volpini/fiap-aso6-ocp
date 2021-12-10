@@ -11,4 +11,4 @@ RUN echo "Hello from RM341279" > /var/www/html/index.html
 
 EXPOSE 80
 
-CMD ["httpd", "-D", "FOREGROUND"]
+CMD [ "httpd", "-D", "FOREGROUND" ]
