@@ -14,7 +14,6 @@ metadata:
     app.openshift.io/runtime: python
     app.openshift.io/runtime-version: 3.8-ubi7
 spec:
-  host: blog-ingress-fiap.apps.na46.prod.nextcle.com
   to:
     kind: Service
     name: blog-ingress
@@ -22,13 +21,3 @@ spec:
   port:
     targetPort: 8080
   wildcardPolicy: None
-status:
-  ingress:
-    - host: blog-ingress-fiap.apps.na46.prod.nextcle.com
-      routerName: default
-      conditions:
-        - type: Admitted
-          status: 'True'
-          lastTransitionTime: '2021-12-10T01:31:23Z'
-      wildcardPolicy: None
-      routerCanonicalHostname: apps.na46.prod.nextcle.com

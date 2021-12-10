@@ -8,3 +8,6 @@ resources:
   - pvc/sample-database.pvc.yml
   - secret/blog.secret.yml
   - secret/sample-database.secret.yml
+  - service/blog.service.yml
+  - service/sample-database.service.yml
+  - route/blog-ingress.route.yml

@@ -16,10 +16,8 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 30505
   selector:
     app: blog-django-py-git
-  clusterIP: 172.30.216.223
   type: LoadBalancer
   sessionAffinity: None
   externalTrafficPolicy: Cluster
