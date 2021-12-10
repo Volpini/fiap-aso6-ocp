@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: sample-database
-  namespace: fiap
+  namespace: teste-danilo
 spec:
   accessModes:
     - ReadWriteOnce

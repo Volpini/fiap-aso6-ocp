@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-atividade-fiap
-  namespace: fiap
+  namespace: teste-danilo
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

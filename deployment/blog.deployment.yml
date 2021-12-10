@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: blog-django-py-git
   generation: 2
-  namespace: fiap
+  namespace: teste-danilo
   labels:
     app: blog-django-py-git
     app.kubernetes.io/component: blog-django-py-git
