@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: blog-ingress
+  namespace: fiap
+  labels:
+    app: blog-django-py-git
+    app.kubernetes.io/component: blog-django-py-git
+    app.kubernetes.io/instance: blog-django-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-django-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30505
+  selector:
+    app: blog-django-py-git
+  clusterIP: 172.30.216.223
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster

@@ -32,6 +32,10 @@ spec:
           resources: {}
           imagePullPolicy: Always
           env:
+            - name: BLOG_SITE_NAME
+              value: Grupo 9's Blog
+            - name: BLOG_BANNER_COLOR
+              value: black
             - name: DATABASE_SERVICE_NAME
               valueFrom:
                 secretKeyRef:

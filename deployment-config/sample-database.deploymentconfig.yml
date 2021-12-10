@@ -3,6 +3,8 @@ apiVersion: apps.openshift.io/v1
 metadata:
   name: sample-database
   namespace: fiap
+  labels:
+    app: sample-database
 spec:
   triggers:
     - type: ImageChange

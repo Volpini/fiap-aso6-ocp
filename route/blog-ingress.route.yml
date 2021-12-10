@@ -1,0 +1,34 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/host.generated: 'true'
+  name: blog-ingress
+  namespace: fiap
+  labels:
+    app: blog-django-py-git
+    app.kubernetes.io/component: blog-django-py-git
+    app.kubernetes.io/instance: blog-django-py-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: blog-django-py-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+spec:
+  host: blog-ingress-fiap.apps.na46.prod.nextcle.com
+  to:
+    kind: Service
+    name: blog-ingress
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: blog-ingress-fiap.apps.na46.prod.nextcle.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2021-12-10T01:31:23Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps.na46.prod.nextcle.com
