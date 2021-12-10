@@ -1,3 +1,14 @@
-FROM image-registry.openshift-image-registry.svc:5000/fiap-aso-bvolpini/blog-django-py-git:latest
+FROM ubi8/ubi:8.3
 
-# TODO: mudar a cor do header
+MAINTAINER Bruno Frigo Volpini <brunovolpini7@gmail.com>
+
+LABEL description="A custom Apache container based on UBI 8"
+
+RUN yum install -y httpd && \
+    yum clean all
+
+RUN echo "Hello from RM341279" > /var/www/html/index.html
+
+EXPOSE 80
+
+CMD ["httpd", "-D", "FOREGROUND"]

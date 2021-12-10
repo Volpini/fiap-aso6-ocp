@@ -1,130 +1,9 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: '*'
-    app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
-    deployment.kubernetes.io/revision: '2'
-    image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"blog-django-py-git:latest","namespace":"fiap-aso-bvolpini"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-django-py-git\")].image","pause":"false"}]
-    openshift.io/generated-by: OpenShiftWebConsole
-  selfLink: /apis/apps/v1/namespaces/fiap-aso-bvolpini/deployments/blog-django-py-git
-  resourceVersion: '24739453'
   name: blog-django-py-git
-  uid: 2dfab99d-a979-4ed9-82f4-70132989f31b
-  creationTimestamp: '2021-11-12T00:01:19Z'
   generation: 2
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: apps/v1
-      time: '2021-11-12T00:01:19Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:alpha.image.policy.openshift.io/resolve-names': {}
-            'f:app.openshift.io/vcs-ref': {}
-            'f:app.openshift.io/vcs-uri': {}
-            'f:image.openshift.io/triggers': {}
-            'f:openshift.io/generated-by': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:app.kubernetes.io/name': {}
-            'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
-            'f:app.openshift.io/runtime-version': {}
-        'f:spec':
-          'f:progressDeadlineSeconds': {}
-          'f:replicas': {}
-          'f:revisionHistoryLimit': {}
-          'f:selector':
-            'f:matchLabels':
-              .: {}
-              'f:app': {}
-          'f:strategy':
-            'f:rollingUpdate':
-              .: {}
-              'f:maxSurge': {}
-              'f:maxUnavailable': {}
-            'f:type': {}
-          'f:template':
-            'f:metadata':
-              'f:labels':
-                .: {}
-                'f:app': {}
-                'f:deploymentconfig': {}
-            'f:spec':
-              'f:containers':
-                'k:{"name":"blog-django-py-git"}':
-                  .: {}
-                  'f:imagePullPolicy': {}
-                  'f:name': {}
-                  'f:ports':
-                    .: {}
-                    'k:{"containerPort":8080,"protocol":"TCP"}':
-                      .: {}
-                      'f:containerPort': {}
-                      'f:protocol': {}
-                  'f:resources': {}
-                  'f:terminationMessagePath': {}
-                  'f:terminationMessagePolicy': {}
-              'f:dnsPolicy': {}
-              'f:restartPolicy': {}
-              'f:schedulerName': {}
-              'f:securityContext': {}
-              'f:terminationGracePeriodSeconds': {}
-    - manager: openshift-controller-manager
-      operation: Update
-      apiVersion: apps/v1
-      time: '2021-11-12T00:02:38Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:template':
-            'f:spec':
-              'f:containers':
-                'k:{"name":"blog-django-py-git"}':
-                  'f:image': {}
-    - manager: kube-controller-manager
-      operation: Update
-      apiVersion: apps/v1
-      time: '2021-11-12T00:02:47Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            'f:deployment.kubernetes.io/revision': {}
-        'f:status':
-          'f:availableReplicas': {}
-          'f:conditions':
-            .: {}
-            'k:{"type":"Available"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-            'k:{"type":"Progressing"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-          'f:observedGeneration': {}
-          'f:readyReplicas': {}
-          'f:replicas': {}
-          'f:updatedReplicas': {}
-  namespace: fiap-aso-bvolpini
+  namespace: fiap
   labels:
     app: blog-django-py-git
     app.kubernetes.io/component: blog-django-py-git
@@ -148,7 +27,7 @@ spec:
       containers:
         - name: blog-django-py-git
           image: >-
-            image-registry.openshift-image-registry.svc:5000/fiap-aso-bvolpini/blog-django-py-git@sha256:101966a251f2260bd8f5bb69e605ecda3addc0b0a65be10564714cf164c4f4e0
+            image-registry.openshift-image-registry.svc:5000/aula/blog-django-py-git@sha256:101966a251f2260bd8f5bb69e605ecda3addc0b0a65be10564714cf164c4f4e0
           ports:
             - containerPort: 8080
               protocol: TCP

@@ -13,8 +13,8 @@ Copiar o oc.exe para dentro do `C:/Windows/System32` para invocar o comando `oc`
 ## Projeto do GIT
 https://github.com/openshift-katacoda/blog-django-py.git
 
-Img registry: image-registry.openshift-image-registry.svc:5000/fiap-aso-bvolpini/blog-django-py-git@sha256:101966a251f2260bd8f5bb69e605ecda3addc0b0a65be10564714cf164c4f4e0
-image-registry.openshift-image-registry.svc:5000/fiap-aso-bvolpini/blog-django-py-git:latest
+Img registry: image-registry.openshift-image-registry.svc:5000/aula/blog-django-py-git@sha256:101966a251f2260bd8f5bb69e605ecda3addc0b0a65be10564714cf164c4f4e0
+image-registry.openshift-image-registry.svc:5000/aula/blog-django-py-git:latest
 
 ## Listar projetos
 `oc projects`
